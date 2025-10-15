@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Vishal Mishra</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="antialiased text-slate-900 bg-white dark:bg-slate-900 dark:text-slate-100">
+
+  <!-- ============================= -->
+  <!-- 🧍 ABOUT SECTION -->
+  <!-- ============================= -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <!-- Profile Image -->
+      <div class="profile-image-wrapper" data-aos="fade-right" data-aos-delay="100">
+        <img src="assets/images/Vis.jpg" alt="Vishal Mishra" class="profile-image">
+      </div>
+
+      <!-- About Text -->
+      <div class="about-text" data-aos="fade-left" data-aos-delay="200">
+        <h2>About Me</h2>
+        <p>
+          Hi! I’m <span class="highlight">Vishal Mishra</span>, a passionate Frontend Developer from Noida. 
+          I specialize in building modern, responsive, and user-friendly web interfaces. 
+          I enjoy transforming complex problems into elegant solutions using clean code, innovative design, and best practices.
+        </p>
+
+        <!-- Skills -->
+        <h3>Skills</h3>
+        <div class="skills">
+          <span class="skill-badge skill-html">HTML</span>
+          <span class="skill-badge skill-css">CSS</span>
+          <span class="skill-badge skill-js">JavaScript</span>
+          <span class="skill-badge skill-react">React.js</span>
+          <span class="skill-badge skill-ui">UI/UX Design</span>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a href="Project.html" class="cta-button">View Projects</a>
+          <a href="Contact.html" class="cta-button bg-white text-blue-600 border border-blue-500 hover:bg-blue-600 hover:text-white">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html>

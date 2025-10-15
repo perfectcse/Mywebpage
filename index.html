@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vishal</title>
+ <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Tailwind CDN (quick dev) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- Optional: Lucide Icons -->
+  <script src="https://unpkg.com/lucide/dist/lucide.min.js"></script>
+
+  <style>
+    /* Small custom overrides */
+    :root {
+      --glass: rgba(255,255,255,0.06);
+    }
+    .glass {
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      backdrop-filter: blur(6px);
+    }
+
+    /* Smooth scroll for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dark mode helpers (tailwind class toggles) */
+    .dark body {
+      background-color: #0b1220;
+    }
+  </style>
+</head>
+<body class="antialiased text-slate-900 bg-white dark:bg-slate-900 dark:text-slate-100">
+
+  <!-- NAVBAR -->
+  <header class="fixed w-full z-40 top-0">
+    <div class="max-w-6xl mx-auto px-5">
+      <nav class="flex items-center justify-between py-4">
+        <!-- Brand -->
+        <a href="#home" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">VM</div>
+          <div class="hidden sm:block">
+            <span class="font-semibold">Vishal Mishra</span>
+            <div class="text-xs text-slate-500 dark:text-slate-400">Frontend Developer</div>
+          </div>
+        </a>
+
+        <!-- Desktop links -->
+        <ul id="nav-links" class="hidden md:flex items-center gap-6">
+          <li><a href="index.html" class="hover:text-indigo-500">Home</a></li>
+          <li><a href="about.html" class="hover:text-indigo-500">About</a></li>
+          <li><a href="Project.html" class="hover:text-indigo-500">Projects</a></li>
+          <li><a href="Contact.html" class="hover:text-indigo-500">Contact</a></li>
+        </ul>
+
+        <!-- Right actions -->
+        <div class="flex items-center gap-3">
+          <!-- Theme toggle -->
+          <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+            <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </button>
+
+          <!-- CTA -->
+          <a href="#projects" class="hidden md:inline-block px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:opacity-95">See Projects</a>
+
+          <!-- Mobile menu button -->
+          <button id="menu-btn" class="md:hidden p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+      <div class="max-w-6xl mx-auto px-5 py-4">
+        <ul class="flex flex-col gap-3">
+          <li><a href="#home" class="block py-2">Home</a></li>
+          <li><a href="about.html" class="block py-2">About</a></li>
+          <li><a href="Project.html" class="block py-2">Projects</a></li>
+          <li><a href="Contact.html" class="block py-2">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main id="home" class="pt-24">
+
+    <!-- HERO -->
+    <section class="min-h-[76vh] flex items-center">
+      <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-8 items-center">
+        <!-- Left: Text -->
+        <div>
+          <p class="text-sm font-medium text-indigo-600" data-aos="fade-right" data-aos-delay="100">Hello — I'm Vishal</p>
+          <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight" id="hero-title">
+            I build clean & modern UI experiences.
+          </h1>
+          <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-xl" data-aos="fade-up" data-aos-delay="200">
+            Frontend developer focused on building accessible, responsive, and delightful web interfaces using HTML, CSS, and JavaScript. Currently exploring micro-interactions and motion design.
+          </p>
+
+          <div class="mt-6 flex gap-4" data-aos="fade-up" data-aos-delay="300">
+            <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-indigo-600 text-white font-medium shadow hover:opacity-95">
+              View Projects
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-slate-200 dark:border-slate-700">
+              Contact Me
+            </a>
+          </div>
+
+          <div class="mt-8 flex items-center gap-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="text-xs text-slate-500">Featured:</div>
+            <div class="flex gap-3">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=3c9a7fb2d1c7bfe5b4a0a58de6b2db0b" alt="project" class="w-20 h-12 rounded-md object-cover border">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1d3b7a8e6ff7f7b9b6b2dcd5c2be8b9f" alt="project" class="w-20 h-12 rounded-md object-cover border">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual card -->
+        <div class="relative">
+          <div class="glass rounded-2xl p-6 shadow-lg">
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 rounded-lg bg-indigo-500 flex items-center justify-center text-white font-bold">VM</div>
+              <div>
+                <div class="font-semibold">Vishal Mishra</div>
+                <div class="text-sm text-slate-500 dark:text-slate-400">Frontend Developer • Noida</div>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <div class="text-sm text-slate-500 dark:text-slate-400">Skills</div>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full border text-sm">HTML</span>
+                <span class="px-3 py-1 rounded-full border text-sm">CSS</span>
+                <span class="px-3 py-1 rounded-full border text-sm">JavaScript</span>
+                <span class="px-3 py-1 rounded-full border text-sm">Tailwind</span>
+                <span class="px-3 py-1 rounded-full border text-sm">GSAP</span>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <div class="text-sm text-slate-500 dark:text-slate-400">Quick Links</div>
+              <div class="mt-3 flex gap-3">
+                <a href="#projects" class="text-sm px-3 py-1 rounded bg-slate-100 dark:bg-slate-800">Projects</a>
+                <a href="#contact" class="text-sm px-3 py-1 rounded border">Contact</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- decorative floating card -->
+          <div class="absolute -right-6 -bottom-6 w-40 h-36 rounded-2xl bg-gradient-to-tr from-pink-400 to-indigo-400 opacity-90 blur-md transform rotate-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT (short preview) -->
+    <section id="about" class="py-20">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="text-2xl font-semibold mb-6" data-aos="fade-up">About Me</h2>
+        <p class="text-slate-600 dark:text-slate-300 max-w-3xl" data-aos="fade-up" data-aos-delay="100">
+          I create front-end solutions that are pixel-perfect and accessible. I enjoy working on UI animations and improving user experiences. I build projects using plain HTML, CSS, and JavaScript.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROJECTS (starter grid) -->
+    <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-800">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-semibold" data-aos="fade-right">Selected Projects</h2>
+          <a href="#" class="text-sm text-indigo-600">View all →</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- project card -->
+          <article class="p-4 rounded-xl bg-white dark:bg-slate-900 shadow" data-aos="fade-up">
+            <img src="assets/images/img.png" class="rounded-md h-40 w-full object-cover" alt="">
+            <h3 class="mt-3 font-semibold">EcoSphere —</h3>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">At EcoSphere, we believe in a future that thrives in harmony with nature. Our mission is to promote sustainable living by offering eco-friendly products that help reduce plastic, conserve resources, and protect our planet 🌍..</p>
+          </article>
+
+          <article class="p-4 rounded-xl bg-white dark:bg-slate-900 shadow" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=4c4f9b6a3b1f9b6b4a3d1f2a3c4b5d6e" class="rounded-md h-40 w-full object-cover" alt="">
+            <h3 class="mt-3 font-semibold">React Dashboard (UI)</h3>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">A dashboard UI mock with charts, filters and responsive grid layout.</p>
+          </article>
+
+          <article class="p-4 rounded-xl bg-white dark:bg-slate-900 shadow" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/images/img2.png" class="rounded-md h-40 w-full object-cover" alt="">
+            <h3 class="mt-3 font-semibold">Landing-Page</h3>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">In digital marketing, a landing page is a standalone webpage that visitors land on after clicking a link from: Email marketing campaigns. Search engine results. Social media advertisements</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (short preview) -->
+    <section id="contact" class="py-20">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="text-2xl font-semibold mb-4" data-aos="fade-up">Contact</h2>
+        <p class="text-slate-600 dark:text-slate-300 mb-6" data-aos="fade-up" data-aos-delay="100">Want to work together or have a question? Send a message.</p>
+
+        <form class="max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input class="p-3 rounded border" placeholder="Your name" required>
+            <input class="p-3 rounded border" placeholder="Your email" required type="email">
+          </div>
+          <textarea class="w-full mt-4 p-3 rounded border" rows="5" placeholder="Message"></textarea>
+          <div class="mt-4">
+            <button type="submit" class="px-5 py-3 bg-indigo-600 text-white rounded-lg">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-slate-100 dark:border-slate-800">
+      <div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
+        <div class="text-sm">&copy; <span id="year"></span> Vishal Mishra. All rights reserved.</div>
+        <div class="flex gap-4 text-sm">
+          <a href="#" class="hover:text-indigo-500">Privacy</a>
+          <a href="#" class="hover:text-indigo-500">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // AOS init
+    AOS.init({
+    duration: 1000,
+    once: true,
+  });
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Theme toggle (persist in localStorage)
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    function setTheme(isDark) {
+      document.documentElement.classList.toggle('dark', isDark);
+      localStorage.setItem('dark', isDark ? '1' : '0');
+      // swap icon (simple)
+      themeIcon.innerHTML = isDark
+        ? '<path d=\"M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z\"/>'
+        : '<path d=\"M12 3v1M12 20v1M4.2 4.2l.7.7M18.1 18.1l.7.7M1 12h1M22 12h1M4.2 19.8l.7-.7M18.1 5.9l.7-.7M12 7a5 5 0 100 10 5 5 0 000-10z\"/>';
+    }
+
+    // Initialize theme
+    const saved = localStorage.getItem('dark');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(saved === null ? prefersDark : saved === '1');
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = !document.documentElement.classList.contains('dark');
+      setTheme(isDark);
+    });
+
+    // GSAP hero entrance animation
+    window.addEventListener('load', () => {
+      gsap.from('#hero-title', { y: 30, opacity: 0, duration: 0.9, ease: 'power3.out' });
+      gsap.from('section#home p, section#home a', { y: 12, opacity: 0, duration: 0.8, delay: 0.2, stagger: 0.08 });
+    });
+
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+  </script>
+  <!-- AOS Library (if used) -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Your Custom Script -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
