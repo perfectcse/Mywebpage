@@ -103,109 +103,205 @@
 /* ===========================
    Projects Section
 =========================== */
-.projects-section {
-  padding: 6rem 1.5rem;
-  background-color: #f8fafc;
+/* ================================ */
+/* 🖥️ PROJECTS SECTION STYLING */
+/* ================================ */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0f1117;
+  color: #fff;
 }
 
+/* SECTION TITLE */
 .section-title {
-  font-size: 2.25rem;
+  font-size: 42px;
   font-weight: 700;
-  margin-bottom: 3rem;
-  color: #1e293b;
+  color: #00eaff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
   text-align: center;
 }
 
+/* ================================ */
+/* PROJECTS GRID */
+/* ================================ */
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
 }
 
-/* Project Card */
+/* ================================ */
+/* PROJECT CARD */
+/* ================================ */
 .project-card {
   position: relative;
-  border-radius: 1rem;
   overflow: hidden;
+  border-radius: 15px;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #161b22;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 1px solid #222;
 }
 
+/* CARD HOVER EFFECT */
+.project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 238, 255, 0.3);
+}
+
+/* CARD IMAGE */
 .project-card img {
   width: 100%;
-  display: block;
-  border-radius: 1rem;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-/* Overlay */
+/* IMAGE HOVER EFFECT */
+.project-card:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.6);
+}
+
+/* OVERLAY */
 .project-overlay {
   position: absolute;
-  bottom: -100%; /* start hidden below */
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(59, 130, 246, 0.9); /* blue overlay */
-  color: #fff;
+  background: rgba(15, 17, 23, 0.9);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
   text-align: center;
-  transition: bottom 0.4s ease, opacity 0.4s ease;
+  padding: 20px;
   opacity: 0;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
 }
 
-.project-overlay h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.project-overlay p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.project-overlay .cta-button {
-  background-color: #fff;
-  color: #3b82f6;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.project-overlay .cta-button:hover {
-  background-color: #2563eb;
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-/* Hover Effect */
+/* SHOW OVERLAY ON HOVER */
 .project-card:hover .project-overlay {
-  bottom: 0;
   opacity: 1;
 }
 
-/* Card hover lift */
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+/* OVERLAY TEXT */
+.project-overlay h3 {
+  font-size: 24px;
+  color: #00eaff;
+  margin-bottom: 12px;
 }
 
-/* Responsive */
-@media(min-width: 768px) {
+.project-overlay p {
+  font-size: 14px;
+  color: #e0e0e0;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.cta-button {
+  display: inline-block;
+  padding: 10px 25px;
+  font-weight: 600;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #0f1117;
+  background: linear-gradient(45deg, #00eaff, #008cff);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(45deg, #61ffde, #00b3ff);
+  box-shadow: 0 0 10px #00eaff;
+}
+
+/* ================================ */
+/* UPLOAD FORM */
+/* ================================ */
+#uploadSection {
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+  background: #13171d;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #252b32;
+}
+
+#uploadSection h3 {
+  font-size: 20px;
+  color: #00eaff;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#uploadSection label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #a5a5a5;
+}
+
+#uploadSection input,
+#uploadSection textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #292d33;
+  background: #0e1014;
+  color: #fff;
+  font-size: 14px;
+}
+
+#uploadSection input:focus,
+#uploadSection textarea:focus {
+  outline: none;
+  border-color: #00eaff;
+  box-shadow: 0 0 8px rgba(0, 234, 255, 0.5);
+}
+
+#submitProject {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  background: linear-gradient(45deg, #00eaff, #008cff);
+  color: #0f1117;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#submitProject:hover {
+  background: linear-gradient(45deg, #61ffde, #00b3ff);
+  box-shadow: 0 0 10px #00eaff;
+}
+
+/* ================================ */
+/* RESPONSIVE */
+@media (max-width: 768px) {
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  #submitProject {
+    width: 70%;
   }
 }
 
-@media(min-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 /* ===========================
    Contact Section
 =========================== */

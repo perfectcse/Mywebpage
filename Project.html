@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Projects</title>
 
-  <!-- AOS Animation (optional if already added) -->
+  <!-- AOS Animation -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-  
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- ✅ Correct relative CSS path -->
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -37,7 +37,8 @@
         <input type="file" id="projectImg" style="display:block; margin-bottom:10px;">
 
         <label>Project Title:</label>
-        <input type="text" id="projectTitle" placeholder="Enter project title..." style="width:100%; margin-bottom:10px">
+        <input type="text" id="projectTitle" placeholder="Enter project title..."
+          style="width:100%; margin-bottom:10px">
 
         <label>Project Description:</label>
         <textarea id="projectDesc" placeholder="Short description..."
@@ -55,31 +56,31 @@
 
         <!-- Project Card 1 -->
         <div class="project-card">
-          <img src="assets/images/img.png" alt="Project 1">
+          <img src="./assets/images/img.png" alt="Project 1">
           <div class="project-overlay">
             <h3>EcoSphere</h3>
             <p>We are committed to promoting sustainable living by offering eco-friendly products 🌍.</p>
-            <a href="https://ecospheretree.netlify.app/" class="cta-button">View Project</a>
+            <a href="https://ecospheretree.netlify.app/" class="cta-button" target="_blank">View Project</a>
           </div>
         </div>
 
         <!-- Project Card 2 -->
         <div class="project-card">
-          <img src="assets/images/img3.png">
+          <img src="./assets/images/img3.png">
           <div class="project-overlay">
             <h3>GYM</h3>
             <p>Fit And Hit Webpage.</p>
-            <a href="https://funwithgym.netlify.app/" class="cta-button">View Project</a>
+            <a href="https://funwithgym.netlify.app/" class="cta-button" target="_blank">View Project</a>
           </div>
         </div>
 
         <!-- Project Card 3 -->
         <div class="project-card">
-          <img src="assets/images/img2.png" alt="Project 3">
+          <img src="./assets/images/img2.png" alt="Project 3">
           <div class="project-overlay">
             <h3>Landing Page</h3>
             <p>A standalone marketing webpage people land on via ads or campaigns.</p>
-            <a href="https://landpgsite.netlify.app/" class="cta-button">View Project</a>
+            <a href="https://landpgsite.netlify.app/" class="cta-button" target="_blank">View Project</a>
           </div>
         </div>
 
@@ -108,17 +109,15 @@
       let desc = document.getElementById("projectDesc").value;
       let link = document.getElementById("projectLink").value;
 
-      // Validate
       if (!title || !desc || !link) {
         alert("⚠️ Please fill all fields!");
         return;
       }
 
-      // Create New Card
       let card = document.createElement("div");
       card.classList.add("project-card");
       card.innerHTML = `
-        <img src="assets/images/defaultProject.png" alt="Uploaded Project">
+        <img src="./assets/images/defaultProject.png" alt="Uploaded Project">
         <div class="project-overlay">
           <h3>${title}</h3>
           <p>${desc}</p>
@@ -129,12 +128,17 @@
       projectContainer.appendChild(card);
       alert("✅ Project Added Successfully!");
 
-      // Clear fields after upload
       document.getElementById("projectTitle").value = "";
       document.getElementById("projectDesc").value = "";
       document.getElementById("projectLink").value = "";
       uploadSection.style.display = "none";
     });
+  </script>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
   </script>
 
 </body>
