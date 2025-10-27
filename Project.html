@@ -1,42 +1,142 @@
-<!-- ============================= -->
-<!-- 🖥️ PROJECTS SECTION -->
-<!-- ============================= -->
-<section id="projects" class="projects-section" data-aos="fade-up">
-  <div class="max-w-6xl mx-auto px-6 py-16 text-center">
-    <h2 class="section-title">My Projects</h2>
-   <link rel="stylesheet" href="assets/css/style.css"> 
-    <div class="projects-grid">
-      <!-- Project Card 1 -->
-      <div class="project-card">
-        <img src="assets/images/img.png" alt="Project 1">
-        <div class="project-overlay">
-          <h3>EcoSphere</h3>
-          <p>At EcoSphere, we believe in a future that thrives in harmony with nature. Our mission is to promote sustainable living by offering eco-friendly products that help reduce plastic, conserve resources, and protect our planet 🌍.
+<!DOCTYPE html>
+<html lang="en">
 
-.</p>
-          <a href="https://ecospheretree.netlify.app/" class="cta-button">View Project</a>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects</title>
+
+  <!-- AOS Animation (optional if already added) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- ============================= -->
+  <!-- 🖥️ PROJECTS SECTION -->
+  <!-- ============================= -->
+  <section id="projects" class="projects-section" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+      <h2 class="section-title">My Projects</h2>
+
+      <!-- Upload Button -->
+      <button class="cta-button" id="uploadBtn" style="margin-bottom: 30px;">
+        + Upload New Project
+      </button>
+
+      <!-- Upload Form Section (Hidden by default) -->
+      <div id="uploadSection"
+        style="display:none; text-align:left; background:#f2f2f2; padding:20px; border-radius:10px; margin-bottom:30px;">
+
+        <h3>Add New Project</h3>
+
+        <label>Project Thumbnail:</label>
+        <input type="file" id="projectImg" style="display:block; margin-bottom:10px;">
+
+        <label>Project Title:</label>
+        <input type="text" id="projectTitle" placeholder="Enter project title..." style="width:100%; margin-bottom:10px">
+
+        <label>Project Description:</label>
+        <textarea id="projectDesc" placeholder="Short description..."
+          style="width:100%; margin-bottom:10px"></textarea>
+
+        <label>Project Link:</label>
+        <input type="text" id="projectLink" placeholder="Netlify/Github link..."
+          style="width:100%; margin-bottom:10px">
+
+        <button class="cta-button" id="submitProject">Upload Project</button>
       </div>
 
-      <!-- Project Card 2 -->
-      <div class="project-card">
-        <img src="assets/images/img3.png">
-        <div class="project-overlay">
-          <h3>GYM</h3>
-          <p>Fit And Hit webpage.</p>
-          <a href="https://funwithgym.netlify.app/" class="cta-button">View Project</a>
-        </div>
-      </div>
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projectContainer">
 
-      <!-- Project Card 3 -->
-      <div class="project-card">
-        <img src="assets/images/img2.png" alt="Project 3">
-        <div class="project-overlay">
-          <h3>Landing-Page</h3>
-          <p>In digital marketing, a landing page is a standalone webpage that visitors land on after clicking a link from: Email marketing campaigns. Search engine results. Social media advertisements.19 Feb 2025.</p>
-          <a href="https://landpgsite.netlify.app/" class="cta-button">View Project</a>
+        <!-- Project Card 1 -->
+        <div class="project-card">
+          <img src="assets/images/img.png" alt="Project 1">
+          <div class="project-overlay">
+            <h3>EcoSphere</h3>
+            <p>We are committed to promoting sustainable living by offering eco-friendly products 🌍.</p>
+            <a href="https://ecospheretree.netlify.app/" class="cta-button">View Project</a>
+          </div>
         </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card">
+          <img src="assets/images/img3.png">
+          <div class="project-overlay">
+            <h3>GYM</h3>
+            <p>Fit And Hit Webpage.</p>
+            <a href="https://funwithgym.netlify.app/" class="cta-button">View Project</a>
+          </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="project-card">
+          <img src="assets/images/img2.png" alt="Project 3">
+          <div class="project-overlay">
+            <h3>Landing Page</h3>
+            <p>A standalone marketing webpage people land on via ads or campaigns.</p>
+            <a href="https://landpgsite.netlify.app/" class="cta-button">View Project</a>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- 📌 JAVASCRIPT -->
+  <!-- ===================================================== -->
+  <script>
+    let uploadBtn = document.getElementById("uploadBtn");
+    let uploadSection = document.getElementById("uploadSection");
+    let submitBtn = document.getElementById("submitProject");
+    let projectContainer = document.getElementById("projectContainer");
+
+    // Show / Hide Upload Form
+    uploadBtn.addEventListener("click", () => {
+      uploadSection.style.display =
+        uploadSection.style.display === "none" ? "block" : "none";
+    });
+
+    // Add New Project Card
+    submitBtn.addEventListener("click", () => {
+      let title = document.getElementById("projectTitle").value;
+      let desc = document.getElementById("projectDesc").value;
+      let link = document.getElementById("projectLink").value;
+
+      // Validate
+      if (!title || !desc || !link) {
+        alert("⚠️ Please fill all fields!");
+        return;
+      }
+
+      // Create New Card
+      let card = document.createElement("div");
+      card.classList.add("project-card");
+      card.innerHTML = `
+        <img src="assets/images/defaultProject.png" alt="Uploaded Project">
+        <div class="project-overlay">
+          <h3>${title}</h3>
+          <p>${desc}</p>
+          <a href="${link}" class="cta-button" target="_blank">View Project</a>
+        </div>
+      `;
+
+      projectContainer.appendChild(card);
+      alert("✅ Project Added Successfully!");
+
+      // Clear fields after upload
+      document.getElementById("projectTitle").value = "";
+      document.getElementById("projectDesc").value = "";
+      document.getElementById("projectLink").value = "";
+      uploadSection.style.display = "none";
+    });
+  </script>
+
+</body>
+
+</html>
