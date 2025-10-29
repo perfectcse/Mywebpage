@@ -34,5 +34,4 @@ It displays all my projects and includes a simple upload feature to add new proj
 
 ---
 
-## 🗂️ Folder Structure
 
